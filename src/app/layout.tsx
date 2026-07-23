@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"; 
+import { Inter } from "next/font/google";
 import Header from "../components/Layout/Header";
 import Footer from "../components/Layout/Footer";
 import "./globals.css";
@@ -21,10 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={inter.variable}>
-      <body>
+      <body suppressHydrationWarning>
         <Header />
         <main>{children}</main>
-        <Footer /> 
+        <Footer />
       </body>
     </html>
   );

@@ -1,22 +1,31 @@
+import PropertyGrid from "../components/Properties/PropertyGrid";
 import { getProperties } from "../services/properties.service";
+import Image from "next/image";
+import styles from "./page.module.css";
 
 export default async function Home() {
   const properties = await getProperties();
 
   return (
-    <div style={{ padding: "30px", fontFamily: "sans-serif" }}>
-      <h1>Validation Étape 2 - Connexion API Kasa</h1>
-      <p style={{ marginTop: "10px", color: "green", fontWeight: "bold" }}>
-        ✅ Nombre de propriétés récupérées depuis le back-end : {properties.length}
-      </p>
-
-      <ul style={{ marginTop: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
-        {properties.map((property) => (
-          <li key={property.id} style={{ padding: "10px", border: "1px solid #ccc", borderRadius: "5px" }}>
-            <strong>{property.title}</strong> - <em>{property.location}</em>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <main className={styles.main}>
+      <section className={styles.bannerSection}>
+        <div className={styles.bannerText}>
+          <h1 className={styles.title}>Chez vous, partout et ailleurs</h1>
+          <p className={styles.subtitle}>
+            Avec Kasa, vivez des séjours uniques dans des hébergements chaleureux, sélectionnés avec soin par nos hôtes.
+          </p>
+        </div>
+        <div className={styles.bannerImageContainer}>
+          <Image
+            src="/banner.jpeg"
+            alt="Bannière accueil Kasa"
+            fill
+            className={styles.bannerImage}
+            priority
+          />
+        </div>
+      </section>
+      <PropertyGrid properties={properties} />
+    </main>
   );
 }

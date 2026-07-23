@@ -1,0 +1,58 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  max-width: 1115px;
+  margin: 0 auto; 
+  padding: 0 20px; 
+}
+
+.bannerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 40px; 
+}
+
+.bannerText {
+  margin-bottom: 40px; 
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #9A2C1C;
+  margin: 0 0 10px 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  margin: 0;
+}
+
+.bannerImageContainer {
+  position: relative;
+  width: 100%;
+  height: 458px; 
+  border-radius: 20px; 
+  overflow: hidden;
+}
+
+.bannerImage {
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+  
+  .bannerImageContainer {
+    width: 100%;
+    max-width: 342px; 
+    height: 458px; 
+    margin: 0 auto; 
+  }
+}
