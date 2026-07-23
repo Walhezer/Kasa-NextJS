@@ -1,0 +1,45 @@
+.baseButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  border-radius: 10px;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  font-family: inherit; 
+}
+
+.textOnly {
+  padding: 8px 32px;
+}
+
+.withIcon {
+  padding: 8px 24px 8px 20px;
+}
+
+.iconOnly {
+  padding: 8px;
+  width: 36px;
+}
+
+.primary {
+  background-color: rgba(153, 51, 26, 1);
+  color: #ffffff;
+}
+
+.primary:hover {
+  background-color: rgba(132, 44, 22, 1);
+}
+
+.secondary {
+  background-color: rgba(245, 245, 245, 1); 
+  color: rgba(153, 51, 26, 1);
+}
+
+.secondary:hover {
+  background-color: #e8e8e8;
+}

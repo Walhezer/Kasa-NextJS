@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Inter } from "next/font/google"; 
+import Header from "../components/Layout/Header";
+import Footer from "../components/Layout/Footer";
 import "./globals.css";
 
-// La maquette Kasa utilise généralement Montserrat (ou la police par défaut de ton choix)
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -19,11 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={montserrat.variable}>
+    <html lang="fr" className={inter.variable}>
       <body>
-        {/* <Header /> later */}
+        <Header />
         <main>{children}</main>
-        {/* <Footer /> later */}
+        <Footer /> 
       </body>
     </html>
   );
