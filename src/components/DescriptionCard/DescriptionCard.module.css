@@ -1,0 +1,67 @@
+.card {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid var(--Gris-light, rgba(245, 245, 245, 1)); 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    color: #000;
+}
+
+.location {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(86, 86, 86, 1);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pin {
+    width: 16px;
+    height: 16px;
+    color: rgba(86, 86, 86, 1);
+}
+
+.description {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sectionTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.badgesContainer {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+}
+
+.badge {
+    background-color: #f6f6f6;
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+}
