@@ -1,0 +1,155 @@
+.signupContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px);
+  padding: 2rem 1rem;
+}
+
+.signupCard {
+  width: 742px;
+  height: 797px; 
+  padding: 80px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 38px;
+  
+  border-radius: 10px;
+  background: var(--Blanc, rgba(255, 255, 255, 1));
+  border: 1px solid var(--Gris-light, rgba(245, 245, 245, 1));
+  box-sizing: border-box;
+}
+
+.headerGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  color: rgba(153, 51, 26, 1);
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+
+.subtitle {
+  color: #333333;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+}
+
+.form {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 22px; 
+  width: 100%;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #000000;
+}
+
+.inputGroup input {
+  padding: 0.85rem 1rem;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.inputGroup input:focus {
+  border-color: rgba(153, 51, 26, 1);
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -6px; 
+}
+
+.checkboxGroup input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.checkboxGroup label {
+  font-size: 12px;
+  color: #7E7E7E; 
+}
+
+.underline {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.errorMessage {
+  color: rgba(153, 51, 26, 1);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.submitBtn {
+  width: 230px;
+  height: 36px;
+  align-self: center;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: -12px;
+}
+
+.link {
+  color: rgba(153, 51, 26, 1);
+  font-size: 0.875rem;
+  text-decoration: none;
+  text-align: center;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .signupCard {
+    width: 100%;
+    height: auto;
+    padding: 24px 16px;
+  }
+  .form {
+    width: 100%;
+  }
+  .subtitle br {
+    display: none;
+  }
+}

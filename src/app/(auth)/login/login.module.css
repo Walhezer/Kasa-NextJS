@@ -1,0 +1,134 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 2rem 1rem;
+}
+
+.loginCard {
+  width: 742px;
+  height: 590px;
+  padding: 80px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  background: var(--Blanc, rgba(255, 255, 255, 1));
+  border: 1px solid var(--Gris-light, rgba(245, 245, 245, 1));
+  box-sizing: border-box;
+}
+
+.headerGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  color: rgba(153, 51, 26, 1);
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center; 
+  margin: 0; 
+}
+
+.subtitle {
+  color: rgba(0, 0, 0, 1);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0; 
+}
+
+.form {
+  width: 360px;
+  display: flex;
+  margin-top: 38px;
+  flex-direction: column;
+  gap: 38px;
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 8px;
+}
+
+.inputGroup label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #000000;
+}
+
+.inputGroup input {
+    padding: 0.85rem 1rem;
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.inputGroup input:focus {
+    border-color: #ff6060;
+}
+
+.errorMessage {
+    color: rgba(153, 51, 26, 1);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+.submitBtn {
+  width: 230px;
+  height: 36px;
+  align-self: center; 
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 22px;
+}
+
+.link {
+    color: rgba(153, 51, 26, 1);
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    text-align: center;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .loginCard {
+    width: 100%;
+    height: auto;
+    padding: 24px 16px;
+  }
+
+  .form {
+    width: 100%;
+  }
+}
