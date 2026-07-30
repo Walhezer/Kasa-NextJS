@@ -2,18 +2,30 @@
 
 import { useState, FormEvent } from 'react';
 import Link from 'next/link';
+import { loginAction } from '../../../actions/auth.actions';
 import Button from '../../../components/Button/Button';
 import styles from './login.module.css';
 
+/**
+ * LoginPage Component
+ * Renders the login form and handles user authentication state.
+ */
 export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
+    /**
+     * Handles the form submission.
+     * Prevents default behavior, packs data into FormData, and calls the server action.
+     * 
+     * @param e - The form submission event.
+     */
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setError('');
+
         if (!email || !password) {
             setError('Veuillez remplir tous les champs.');
             return;
@@ -22,22 +34,18 @@ export default function LoginPage() {
         setIsLoading(true);
 
         try {
-            // TODO: Connexion à l'API Express.js
-            // const res = await fetch('http://localhost:3000/api/auth/login', { ... });
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
 
-            // Simulation pour tester l'affichage des erreurs
-            if (email !== 'client@kasa.fr' || password !== 'password123') {
-                throw new Error('Identifiants invalides. Veuillez réessayer.');
+            const result = await loginAction(formData);
+
+            if (result?.error) {
+                setError(result.error);
+                setIsLoading(false);
             }
-
-            alert('Connexion réussie !');
         } catch (err: unknown) {
-            if (err instanceof Error) {
-                setError(err.message);
-            } else {
-                setError('Une erreur est survenue lors de la connexion.');
-            }
-        } finally {
+            setError('Une erreur inattendue est survenue.');
             setIsLoading(false);
         }
     };
