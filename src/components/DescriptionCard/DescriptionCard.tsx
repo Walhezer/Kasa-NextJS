@@ -16,16 +16,18 @@ export default function DescriptionCard({
     equipments,
     tags
 }: DescriptionCardProps) {
-    
-const cleanTitle = title.split(' - ')[0];
+    const cleanTitle = title.split(' - ')[0];
 
     return (
         <div className={styles.card}>
             <h1 className={styles.title}>{cleanTitle}</h1>
+            
             <p className={styles.location}>
                 <LocationIcon className={styles.pin} /> {location}
             </p>
+            
             <p className={styles.description}>{description}</p>
+            
             {equipments && equipments.length > 0 && (
                 <div className={styles.section}>
                     <h3 className={styles.sectionTitle}>Équipements</h3>
@@ -36,6 +38,7 @@ const cleanTitle = title.split(' - ')[0];
                     </div>
                 </div>
             )}
+            
             {tags && tags.length > 0 && (
                 <div className={styles.section}>
                     <h3 className={styles.sectionTitle}>Catégorie</h3>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Gallery from '@/src/components/Gallery/Gallery';
 import HostCard from '@/src/components/HostCard/HostCard';
 import DescriptionCard from '@/src/components/DescriptionCard/DescriptionCard';
-import Button from '@/src/components/Button/Button'; 
+import Button from '@/src/components/Button/Button';
 import { getPropertyBySlug } from '@/src/services/properties.service';
 import { ArrowLeftIcon } from '@/src/components/Icons';
 import styles from './PropertyDetails.module.css';
@@ -37,7 +37,7 @@ export default async function PropertyDetails({ params }: PageProps) {
             <div className={styles.contentLayout}>
                 <div className={styles.leftColumn}>
                     <Gallery pictures={property.pictures ?? []} />
-                    <DescriptionCard 
+                    <DescriptionCard
                         title={property.title}
                         location={property.location}
                         description={property.description}

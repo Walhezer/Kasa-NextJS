@@ -60,8 +60,6 @@
 }
 
 .favoriteWrapper button svg path {
-  fill: rgba(86, 86, 86, 1);
-  stroke: rgba(86, 86, 86, 1);
   width: 16px; 
   height: 16px;
 }

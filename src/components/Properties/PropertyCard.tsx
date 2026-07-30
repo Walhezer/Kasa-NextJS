@@ -6,17 +6,22 @@ import { Property } from '../../types/property';
 import styles from './PropertyCard.module.css';
 import Button from '../../components/Button/Button';
 import { HeartIcon } from '../../components/Icons/index';
-
+import { useFavorites } from '../../context/FavoritesContext';
 
 interface PropertyCardProps {
   property: Property;
 }
 
 export default function PropertyCard({ property }: PropertyCardProps) {
+  const { isFavorite, toggleFavorite, isMounted } = useFavorites();
+  const propertyId = String(property.id);
+  const isFav = isFavorite(propertyId);
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    console.log(`Favori ajouté/retiré pour : ${property.title}`);
+    e.stopPropagation();
+
+    toggleFavorite(propertyId);
   };
 
   return (
@@ -32,11 +37,17 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             className={styles.image}
             priority={false}
           />
-          <div className={styles.favoriteWrapper}>
-            <Button onClick={handleFavoriteClick} aria-label="Ajouter aux favoris">
-              <HeartIcon />
-            </Button>
-          </div>
+          {isMounted && (
+            <div className={styles.favoriteWrapper}>
+              <Button onClick={handleFavoriteClick} aria-label={isFav ? "Retirer des favoris" : "Ajouter aux favoris"}>
+                <HeartIcon
+                  isFilled={isFav}
+                  inactiveBgColor="rgba(86, 86, 86, 1)"
+                  inactiveBorderColor="rgba(86, 86, 86, 1)"
+                />
+              </Button>
+            </div>
+          )}
         </div>
 
         <div className={styles.content}>

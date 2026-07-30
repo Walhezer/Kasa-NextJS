@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LogoKasa from "../../components/Icons/LogoKasa";
 import LogoHouse from "../../components/Icons/LogoHouse";
-import { HeartIcon, MessageIcon, MenuIcon, CloseIcon } from "../../components/Icons"; 
+import { HeartIcon, MessageIcon, MenuIcon, CloseIcon } from "../../components/Icons";
 import Button from "../../components/Button/Button";
 import styles from "./Header.module.css";
 

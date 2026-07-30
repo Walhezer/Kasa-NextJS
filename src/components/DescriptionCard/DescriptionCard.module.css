@@ -9,14 +9,14 @@
 }
 
 .title {
-    font-size: 2rem;
+    font-size: 1.5rem; 
     font-weight: 600;
     margin: 0;
     color: #000;
 }
 
 .location {
-    font-size: 14px;
+    font-size: 0.875rem; 
     font-weight: 400;
     color: rgba(86, 86, 86, 1);
     margin: 0;
@@ -32,11 +32,10 @@
 }
 
 .description {
-    font-size: 1rem;
+    font-size: 0.875rem; 
     line-height: 1.5;
     color: #333;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 0; 
 }
 
 .section {
@@ -61,7 +60,7 @@
     background-color: #f6f6f6;
     padding: 8px 20px;
     border-radius: 10px;
-    font-size: 0.9rem;
+    font-size: 0.75rem; /* 👈 12px */
     font-weight: 500;
     color: #333;
 }
