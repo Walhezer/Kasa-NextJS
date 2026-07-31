@@ -1,4 +1,7 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+// The Express auth router is mounted at `/auth` (not `/api/auth`).
+// Keep this URL separate from NEXT_PUBLIC_API_URL, which is used by the
+// property API and includes the `/api` prefix.
+const AUTH_API_URL = process.env.AUTH_API_URL || 'http://localhost:3000';
 
 export interface AuthResponse {
   token: string;
@@ -18,7 +21,7 @@ export const authService = {
    * @returns A promise resolving to the AuthResponse containing the token and user data.
    */
   async register(userData: { name: string; email: string; password: string }): Promise<AuthResponse> {
-    const response = await fetch(`${API_URL}/auth/register`, {
+    const response = await fetch(`${AUTH_API_URL}/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData),
@@ -38,7 +41,7 @@ export const authService = {
    * @returns A promise resolving to the AuthResponse containing the token and user data.
    */
   async login(credentials: { email: string; password: string }): Promise<AuthResponse> {
-    const response = await fetch(`${API_URL}/auth/login`, {
+    const response = await fetch(`${AUTH_API_URL}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
