@@ -5,8 +5,12 @@
   padding: 40px 20px;
   min-height: 60vh;
   width: 100%;
-  max-width: 1240px; 
+  max-width: 1115px;
   margin: 0 auto;
+}
+
+.gridWrapper {
+  width: 100%;
 }
 
 .header {

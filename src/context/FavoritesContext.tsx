@@ -15,7 +15,7 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        // Le setTimeout contourne l'avertissement du linter Next.js sur les rendus en cascade
+
         const initTimer = setTimeout(() => {
             const storedFavorites = localStorage.getItem('kasa-favorites');
             if (storedFavorites) {

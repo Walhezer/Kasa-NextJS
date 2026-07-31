@@ -1,6 +1,9 @@
 import { Property } from "../types/property";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
+const API_BASE_URL =
+    typeof window === "undefined"
+        ? process.env.BACKEND_API_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api"
+        : "/backend-api";
 
 /**
  * Retrieves a list of all properties
