@@ -48,7 +48,7 @@ export const authService = {
     });
 
     if (!response.ok) {
-      const error = await response.json().catch(() => ({ message: 'Invalid credentials' }));
+      const error = await response.json().catch(() => ({ message: 'E-mail ou mot de passe incorrect.' }));
       throw new Error(error.message);
     }
 

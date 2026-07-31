@@ -39,7 +39,7 @@ export async function signupAction(formData: FormData) {
     });
 
   } catch (error: any) {
-    return { error: error.message || 'Email might already be in use.' };
+    return { error: error.message || 'Cette adresse e-mail est peut-être déjà utilisée.' };
   }
 
   redirect('/');
@@ -58,7 +58,7 @@ export async function loginAction(formData: FormData) {
     const password = formData.get('password') as string;
 
     if (!email || !password) {
-      return { error: 'Please provide both email and password.' };
+      return { error: 'Veuillez indiquer votre adresse e-mail et votre mot de passe.' };
     }
 
     const { token } = await authService.login({ email, password });
@@ -72,7 +72,7 @@ export async function loginAction(formData: FormData) {
     });
 
   } catch (error: any) {
-    return { error: 'Invalid credentials.' };
+    return { error: 'Identifiants non valides.' };
   }
 
   redirect('/');
