@@ -9,6 +9,7 @@ import { HeartIcon, MessageIcon, MenuIcon, CloseIcon } from "../../components/Ic
 import Button from "../../components/Button/Button";
 import styles from "./Header.module.css";
 import { logoutAction } from "../../actions/auth.actions";
+import { useFavorites } from "../../context/FavoritesContext";
 
 /**
  * Expected props for the Header component
@@ -27,7 +28,13 @@ interface HeaderProps {
  */
 export default function Header({ isLoggedIn }: HeaderProps) {
     const pathname = usePathname();
+    const { clearFavorites } = useFavorites();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const handleLogout = async () => {
+        clearFavorites();
+        await logoutAction();
+    };
 
     useEffect(() => {
         if (isMobileMenuOpen) {
@@ -72,7 +79,7 @@ export default function Header({ isLoggedIn }: HeaderProps) {
 
                         {isLoggedIn && (
                             <button
-                                onClick={async () => await logoutAction()}
+                                onClick={handleLogout}
                                 className={styles.navLink}
                                 style={{ marginLeft: "1rem", cursor: "pointer", background: "none", border: "none", padding: 0 }}
                                 title="Se déconnecter"
@@ -125,7 +132,7 @@ export default function Header({ isLoggedIn }: HeaderProps) {
                             <button
                                 onClick={async () => {
                                     setIsMobileMenuOpen(false);
-                                    await logoutAction();
+                                    await handleLogout();
                                 }}
                                 className={styles.mobileLink}
                                 style={{ background: "none", border: "none", textAlign: "left", cursor: "pointer" }}

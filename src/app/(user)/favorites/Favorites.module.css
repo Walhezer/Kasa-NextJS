@@ -19,10 +19,11 @@
 }
 
 .title {
-  color: #FF6060; 
-  font-size: 36px;
+  color: rgba(153, 51, 26, 1);
+  font-style: bold;
+  font-size: 32px;
   margin-bottom: 15px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .subtitle {
@@ -44,20 +45,6 @@
   font-size: 18px;
   color: #565656;
   margin-bottom: 30px;
-}
-
-.homeLink {
-  color: #ffffff;
-  background-color: #FF6060; 
-  padding: 12px 25px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
-.homeLink:hover {
-  background-color: #e05555;
 }
 
 @media (max-width: 768px) {

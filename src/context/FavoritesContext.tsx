@@ -6,6 +6,7 @@ interface FavoritesContextType {
     favorites: string[];
     toggleFavorite: (id: string) => void;
     isFavorite: (id: string) => boolean;
+    clearFavorites: () => void;
     isMounted: boolean;
 }
 
@@ -47,8 +48,13 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
 
     const isFavorite = (id: string) => favorites.includes(id);
 
+    const clearFavorites = () => {
+        localStorage.removeItem('kasa-favorites');
+        setFavorites([]);
+    };
+
     return (
-        <FavoritesContext.Provider value={{ favorites, toggleFavorite, isFavorite, isMounted }}>
+        <FavoritesContext.Provider value={{ favorites, toggleFavorite, isFavorite, clearFavorites, isMounted }}>
             {children}
         </FavoritesContext.Provider>
     );

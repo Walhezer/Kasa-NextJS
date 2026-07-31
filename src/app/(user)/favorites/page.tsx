@@ -1,7 +1,8 @@
 'use client';
 
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Button from '../../../components/Button/Button';
 import PropertyGrid from '../../../components/Properties/PropertyGrid';
 import { useFavorites } from '../../../context/FavoritesContext';
 import { getProperties } from '../../../services/properties.service';
@@ -9,6 +10,7 @@ import { Property } from '../../../types/property';
 import styles from './Favorites.module.css';
 
 export default function FavoritesPage() {
+  const router = useRouter();
   const { favorites, isMounted } = useFavorites();
   const [favoriteProperties, setFavoriteProperties] = useState<Property[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -52,9 +54,10 @@ export default function FavoritesPage() {
   return (
     <main className={styles.pageContainer}>
       <header className={styles.header}>
-        <h1 className={styles.title}>Mes favoris</h1>
+        <h1 className={styles.title}>Vos favoris</h1>
         <p className={styles.subtitle}>
-          Retrouvez ici les logements que vous avez enregistres.
+          Retrouvez ici tous les logements que vous avez aimés.<br />
+          Prêts à réserver ? Un simple clic et votre prochain séjour est en route.
         </p>
       </header>
 
@@ -63,9 +66,9 @@ export default function FavoritesPage() {
       ) : favorites.length === 0 ? (
         <section className={styles.emptyState}>
           <p className={styles.emptyText}>Vous n&apos;avez pas encore de favoris.</p>
-          <Link href="/" className={styles.homeLink}>
+          <Button type="button" onClick={() => router.push('/')}>
             Decouvrir les logements
-          </Link>
+          </Button>
         </section>
       ) : favoriteProperties.length > 0 ? (
         <div className={styles.gridWrapper}>
@@ -76,9 +79,9 @@ export default function FavoritesPage() {
           <p className={styles.emptyText}>
             Les logements enregistrés ne sont plus disponibles.
           </p>
-          <Link href="/" className={styles.homeLink}>
+          <Button type="button" onClick={() => router.push('/')}>
             Decouvrir les logements
-          </Link>
+          </Button>
         </section>
       )}
     </main>
