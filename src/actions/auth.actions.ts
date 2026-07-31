@@ -77,3 +77,14 @@ export async function loginAction(formData: FormData) {
 
   redirect('/');
 }
+
+/**
+ * Server action to handle user logout.
+ * Deletes the authentication cookie and redirects to the home page.
+ */
+export async function logoutAction() {
+  const cookieStore = await cookies();
+  cookieStore.delete('kasa_token');
+  
+  redirect('/');
+}
