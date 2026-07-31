@@ -26,7 +26,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
 
   return (
     <article className={styles.card}>
-      <Link href={`/housing/${property.slug}`} className={styles.link}>
+      <Link href={`/${property.slug}`} className={styles.link}>
 
         <div className={styles.imageContainer}>
           <Image
