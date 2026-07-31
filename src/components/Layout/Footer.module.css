@@ -37,9 +37,10 @@
 @media (max-width: 768px) {
   .footer {
     height: auto;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center; 
     padding: 20px;
-    text-align: center;
+    text-align: left;
   }
 }

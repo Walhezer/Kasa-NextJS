@@ -1,4 +1,5 @@
 import PropertyGrid from "../components/Properties/PropertyGrid";
+import HowItWorks from "../components/HowItWorks/HowItWorks";
 import { getProperties } from "../services/properties.service";
 import Image from "next/image";
 import styles from "./page.module.css";
@@ -28,6 +29,7 @@ export default async function Home() {
         </div>
       </section>
       <PropertyGrid properties={properties} />
+      <HowItWorks />
     </main>
   );
 }
