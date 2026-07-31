@@ -10,7 +10,9 @@ export default async function Home() {
     <main className={styles.main}>
       <section className={styles.bannerSection}>
         <div className={styles.bannerText}>
-          <h1 className={styles.title}>Chez vous, partout et ailleurs</h1>
+          <h1 className={styles.title}>
+            Chez vous, <br className={styles.mobileBreak} /> partout et ailleurs
+          </h1>
           <p className={styles.subtitle}>
             Avec Kasa, vivez des séjours uniques dans des hébergements chaleureux, sélectionnés avec soin par nos hôtes.
           </p>

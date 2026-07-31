@@ -39,7 +39,7 @@ export default function Header({ isLoggedIn }: HeaderProps) {
 
     return (
         <header className={styles.headerContainer}>
-            <div className={styles.header}>
+            <div className={`${styles.header} ${isLoggedIn ? styles.headerLoggedIn : ""}`}>
 
                 {/* --- DESKTOP --- */}
                 <div className={styles.desktopContent}>

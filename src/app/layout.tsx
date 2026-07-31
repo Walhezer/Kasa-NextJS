@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { cookies } from "next/headers"; 
 import Header from "../components/Layout/Header";
@@ -16,6 +16,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Kasa - Location d'appartements et de maisons",
   description: "Trouvez votre prochain logement entre particuliers avec Kasa.",
+};
+
+/**
+ * Viewport configuration (Abricot style)
+ * Locks the scale and viewport bounds to prevent scaling down below device limits
+ */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
 };
 
 /**
@@ -38,13 +48,14 @@ export default async function RootLayout({
     <html lang="fr" className={inter.variable}>
       <body suppressHydrationWarning>
         <FavoritesProvider>
-          <Header isLoggedIn={isLoggedIn} />
-          
-          <main>{children}</main>
-          
-          <Footer />
+          <div className="pageWrapper">
+            <Header isLoggedIn={isLoggedIn} />
+            
+            <main>{children}</main>
+            
+            <Footer />
+          </div>
         </FavoritesProvider>
-        
       </body>
     </html>
   );

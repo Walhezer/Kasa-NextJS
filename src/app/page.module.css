@@ -1,6 +1,8 @@
 .main {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 320px; 
   max-width: 1115px;
   margin: 0 auto; 
   padding: 0 20px; 
@@ -44,15 +46,30 @@
   object-fit: cover;
 }
 
+.mobileBreak {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  
+  .bannerSection {
+    margin-top: 51px; 
+  }
+
   .title {
     font-size: 24px;
   }
+
+  .mobileBreak {
+    display: block;
+  }
+  
+  .bannerText {
+    margin-bottom: 25px; 
+  }
   
   .bannerImageContainer {
-    width: 100%;
-    max-width: 342px; 
-    height: 458px; 
-    margin: 0 auto; 
+    width: 100%; 
+    max-width: none;
   }
 }
