@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1rem;
+    text-align: center;
+    min-height: 80vh;
+}
+
+.errorCode {
+    font-size: 100px;
+    font-weight: 900;
+    font-style: normal;
+    color: rgba(153, 51, 26, 1); 
+    margin: 0;
+    line-height: 1;
+}
+
+.errorText {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 1);
+    margin: 2rem 0 5rem 0;
+    font-weight: 400;
+    max-width: 500px; 
+    width: 100%; 
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+}
+
+.buttonsContainer a {
+    text-decoration: none;
+    width: 200px; 
+}
+
+.buttonsContainer button {
+    width: 200px !important;
+    height: 36px !important;
+    padding: 8px 32px !important;
+    border-radius: 10px !important;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .errorText {
+        font-size: 14px;
+        padding: 0; 
+        width: 95%; 
+        margin-bottom: 3rem; 
+    }
+}
