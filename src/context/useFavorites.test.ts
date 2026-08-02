@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useFavorites, FavoritesProvider } from '../context/FavoritesContext';
+import { useFavorites, FavoritesProvider } from './FavoritesContext';
 
 // 1. We create a “fake” localStorage (a mock) so that Jest can simulate the browser
 const localStorageMock = (function () {
