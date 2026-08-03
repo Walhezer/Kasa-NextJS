@@ -51,7 +51,7 @@ export default function LoginPage() {
     };
 
     return (
-        <main className={styles.loginContainer}>
+        <div className={styles.loginContainer}>
             <div className={styles.loginCard}>
                 <div className={styles.headerGroup}>
                     <h1 className={styles.title}>Heureux de vous revoir</h1>
@@ -112,6 +112,6 @@ export default function LoginPage() {
                     </Link>
                 </div>
             </div>
-        </main>
+        </div>
     );
 }

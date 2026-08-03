@@ -52,7 +52,7 @@ export default function FavoritesPage() {
   }
 
   return (
-    <main className={styles.pageContainer}>
+    <div className={styles.pageContainer}>
       <header className={styles.header}>
         <h1 className={styles.title}>Vos favoris</h1>
         <p className={styles.subtitle}>
@@ -84,6 +84,6 @@ export default function FavoritesPage() {
           </Button>
         </section>
       )}
-    </main>
+    </div>
   );
 }

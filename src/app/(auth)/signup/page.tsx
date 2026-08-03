@@ -56,7 +56,7 @@ export default function SignupPage() {
     };
 
     return (
-        <main className={styles.signupContainer}>
+        <div className={styles.signupContainer}>
             <div className={styles.signupCard}>
                 <div className={styles.headerGroup}>
                     <h1 className={styles.title}>Rejoignez la communauté Kasa</h1>
@@ -139,6 +139,6 @@ export default function SignupPage() {
                     </div>
                 </form>
             </div>
-        </main>
+        </div>
     );
 }

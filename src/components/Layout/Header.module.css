@@ -37,11 +37,10 @@
 
 .leftNav {
     display: flex;
-    gap: 30px; /* Espace entre Accueil et À propos */
+    gap: 30px; 
     align-items: center;
 }
 
-/* Le centrage absolu : le logo ne bougera plus JAMAIS */
 .logoContainer {
     position: absolute;
     left: 50%;

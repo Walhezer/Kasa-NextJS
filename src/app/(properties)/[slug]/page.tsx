@@ -31,7 +31,7 @@ export default async function PropertyDetails({ params }: PageProps) {
     }
 
     return (
-        <main className={styles.mainContainer}>
+        <div className={styles.mainContainer}>
             <BackButton />
 
             <div className={styles.contentLayout}>
@@ -49,6 +49,6 @@ export default async function PropertyDetails({ params }: PageProps) {
                     <HostCard host={property.host} rating={property.rating_avg} />
                 </div>
             </div>
-        </main>
+        </div>
     );
 }

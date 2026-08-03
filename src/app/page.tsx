@@ -8,7 +8,7 @@ export default async function Home() {
   const properties = await getProperties();
 
   return (
-    <main className={styles.main}>
+    <div className={styles.main}>
       <section className={styles.bannerSection}>
         <div className={styles.bannerText}>
           <h1 className={styles.title}>
@@ -30,6 +30,6 @@ export default async function Home() {
       </section>
       <PropertyGrid properties={properties} />
       <HowItWorks />
-    </main>
+    </div>
   );
 }
