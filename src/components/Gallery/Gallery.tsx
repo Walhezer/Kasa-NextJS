@@ -24,11 +24,10 @@ export default function Gallery({ pictures }: GalleryProps) {
     return (
         <>
             <div className={styles.galleryGrid}>
-                <div 
+                <button 
+                    type="button"
                     className={styles.mainImage} 
                     onClick={() => setIsModalOpen(true)}
-                    role="button"
-                    tabIndex={0}
                     aria-label="Ouvrir la galerie en plein écran"
                 >
                     <Image
@@ -39,17 +38,16 @@ export default function Gallery({ pictures }: GalleryProps) {
                         priority 
                         sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                </div>
+                </button>
                 
                 {hasMultiplePictures && (
                     <div className={styles.smallImagesContainer}>
                         {thumbnails.map((thumb) => (
-                            <div
+                            <button
+                                type="button"
                                 key={thumb.originalIndex}
                                 className={styles.smallImageWrapper}
                                 onClick={() => setCurrentIndex(thumb.originalIndex)}
-                                role="button"
-                                tabIndex={0} 
                                 aria-label={`Voir l'image ${thumb.originalIndex + 1}`}
                             >
                                 <Image
@@ -59,7 +57,7 @@ export default function Gallery({ pictures }: GalleryProps) {
                                     className={styles.image}
                                     sizes="(max-width: 768px) 25vw, 25vw"
                                 />
-                            </div>
+                            </button>
                         ))}
                     </div>
                 )}

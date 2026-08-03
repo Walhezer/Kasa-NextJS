@@ -1,15 +1,16 @@
 .card {
   width: 100%;
   border-radius: 10px; 
-  overflow: hidden; 
   background-color: #ffffff; 
-  transition: transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  opacity: 0.9;
 }
 
 .link {
@@ -18,6 +19,14 @@
   width: 100%;
   height: 100%;
   text-decoration: none;
+  border-radius: 10px;
+  overflow: hidden; 
+  outline: none;
+}
+
+.link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(153, 51, 26, 1);
 }
 
 .imageContainer {
@@ -48,6 +57,12 @@
   padding: 0; 
   border: none;
   cursor: pointer;
+  outline: none;
+}
+
+.favoriteWrapper button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(153, 51, 26, 1);
 }
 
 .favoriteWrapper button svg path {
