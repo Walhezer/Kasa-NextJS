@@ -1,4 +1,7 @@
+'use client'; 
+
 import Image from 'next/image';
+import { useRouter } from 'next/navigation'; 
 import styles from './HostCard.module.css';
 import { Host } from '@/src/types/property'; 
 import Button from '@/src/components/Button/Button';
@@ -9,6 +12,8 @@ interface HostCardProps {
 }
 
 export default function HostCard({ host, rating }: HostCardProps) {
+    const router = useRouter(); 
+
     return (
         <div className={styles.card}>
             <h3 className={styles.title}>Votre hôte</h3>
@@ -28,8 +33,9 @@ export default function HostCard({ host, rating }: HostCardProps) {
                 </div>
             </div>
             <div className={styles.buttonsContainer}>
-                <Button>Contacter l&apos;hôte</Button>
-                <Button>Envoyer un message</Button>
+                <Button onClick={() => router.push('/messages')}>
+                    Envoyer un message
+                </Button>
             </div>
         </div>
     );
