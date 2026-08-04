@@ -61,30 +61,25 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    gap: 10px;
+    gap: 6px;
     margin-bottom: 20px;
   }
 
   .mainImage {
     width: 100%;
-    height: 255px;
+    height: 422px; 
     border-radius: 10px; 
   }
 
   .smallImagesContainer {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    gap: 6px; 
+    width: 100%;
   }
 
   .smallImageWrapper {
-    width: 25%;
-    height: 70px;
-    border-radius: 10px; 
-  }
-
-  .smallImageWrapper:nth-child(2),
-  .smallImageWrapper:nth-child(4) {
-    border-radius: 10px;
+    flex: 1; 
+    height: 109px; 
+    border-radius: 6px; 
   }
 }

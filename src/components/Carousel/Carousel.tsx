@@ -1,4 +1,4 @@
-'use client'; // Indispensable car on utilise des Hooks (useState) pour l'interactivité
+'use client';
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
