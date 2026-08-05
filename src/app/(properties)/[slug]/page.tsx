@@ -1,15 +1,44 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { Metadata, ResolvingMetadata } from 'next';
 import Gallery from '@/src/components/Gallery/Gallery';
 import HostCard from '@/src/components/HostCard/HostCard';
 import DescriptionCard from '@/src/components/DescriptionCard/DescriptionCard';
 import Button from '@/src/components/Button/Button';
 import { getPropertyBySlug } from '@/src/services/properties.service';
+import PropertyJsonLd from '@/src/components/PropertyJsonLd/PropertyJsonLd';
 import { ArrowLeftIcon } from '@/src/components/Icons';
 import styles from './PropertyDetails.module.css';
 
-interface PageProps {
-    params: Promise<{ slug: string }>;
+type PageProps = {
+    params: { slug: string };
+};
+
+export async function generateMetadata(
+    { params }: PageProps,
+    parent: ResolvingMetadata,
+): Promise<Metadata> {
+    const property = await getPropertyBySlug(params.slug);
+
+    if (!property) {
+        return {
+            title: 'Logement non trouvé',
+            description: "Ce logement n'existe pas ou n'est plus disponible.",
+        };
+    }
+
+    const previousImages = (await parent).openGraph?.images || [];
+
+    return {
+        title: `${property.title} - Kasa`,
+        description: property.description,
+        alternates: {
+            canonical: `/logement/${property.slug}`,
+        },
+        openGraph: {
+            images: [property.cover, ...previousImages],
+        },
+    };
 }
 
 function BackButton() {
@@ -23,8 +52,7 @@ function BackButton() {
 }
 
 export default async function PropertyDetails({ params }: PageProps) {
-    const resolvedParams = await params;
-    const property = await getPropertyBySlug(resolvedParams.slug);
+    const property = await getPropertyBySlug(params.slug);
 
     if (!property) {
         notFound();
@@ -32,6 +60,7 @@ export default async function PropertyDetails({ params }: PageProps) {
 
     return (
         <div className={styles.mainContainer}>
+            <PropertyJsonLd property={property} />
             <BackButton />
 
             <div className={styles.contentLayout}>

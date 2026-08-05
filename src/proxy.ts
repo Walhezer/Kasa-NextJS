@@ -1,10 +1,10 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
 /**
- * Next.js Edge Middleware for route protection in Kasa.
+ * Next.js Edge Proxy for route protection in Kasa.
  * Verifies the authentication cookie to secure private routes and prevent unauthorized access.
  */
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const token = request.cookies.get('kasa_token')?.value;
   const { pathname } = request.nextUrl;
 
@@ -19,7 +19,7 @@ export function middleware(request: NextRequest) {
 }
 
 /**
- * Middleware configuration defining the exact route paths to intercept for Kasa.
+ * Proxy configuration defining the exact route paths to intercept for Kasa.
  */
 export const config = {
   matcher: [
