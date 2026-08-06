@@ -4,6 +4,14 @@ import { getProperties } from "../services/properties.service";
 import Image from "next/image";
 import styles from "./page.module.css";
 
+/**
+ * Home Page Component (Server-side).
+ * Acts as the main landing page for the Kasa application.
+ * Fetches all available properties server-side and renders the hero banner,
+ * the property grid, and the "How it works" instructional section.
+ * 
+ * @returns {Promise<JSX.Element>} The fully rendered homepage component.
+ */
 export default async function Home() {
   const properties = await getProperties();
 

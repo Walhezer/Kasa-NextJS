@@ -2,8 +2,11 @@ import Image from "next/image";
 import styles from "./about.module.css";
 
 /**
- * About page component.
- * Displays information about the Kasa company and its mission.
+ * About Page Component.
+ * Renders the "À propos" (About) page for the Kasa application.
+ * Displays the company's mission statement, core values, and static illustrative images.
+ * 
+ * @returns {JSX.Element} The rendered About page.
  */
 export default function About() {
     return (

@@ -9,6 +9,14 @@ import { getProperties } from '../../../services/properties.service';
 import { Property } from '../../../types/property';
 import styles from './Favorites.module.css';
 
+/**
+ * FavoritesPage Component (Client-side).
+ * Displays a grid of properties that the user has marked as favorites.
+ * It manages local state for loading indicators, handles hydration safety (isMounted),
+ * and fetches the full property details based on the stored favorite IDs.
+ * 
+ * @returns {JSX.Element | null} The rendered favorites page, or null before the component has mounted on the client.
+ */
 export default function FavoritesPage() {
   const router = useRouter();
   const { favorites, isMounted } = useFavorites();
@@ -28,6 +36,10 @@ export default function FavoritesPage() {
 
     let isCurrent = true;
 
+    /**
+     * Asynchronously fetches all properties and filters them to keep only the favorites.
+     * Updates the local state if the component is still mounted.
+     */
     async function loadFavoriteProperties() {
       setIsLoading(true);
       const properties = await getProperties();

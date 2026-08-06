@@ -10,11 +10,24 @@ import PropertyJsonLd from '@/src/components/PropertyJsonLd/PropertyJsonLd';
 import { ArrowLeftIcon } from '@/src/components/Icons';
 import styles from './PropertyDetails.module.css';
 
-// 1. On modifie le type pour indiquer que params est désormais une Promesse
+/**
+ * Defines the properties expected by the PropertyDetails page.
+ * 
+ * @typedef {Object} PageProps
+ * @property {Promise<{ slug: string }>} params - The dynamic route parameters containing the property slug.
+ */
 type PageProps = {
     params: Promise<{ slug: string }>;
 };
 
+/**
+ * Generates SEO metadata dynamically for the property details page.
+ * Fetches the property data based on the slug and populates title, description, and OpenGraph tags.
+ * 
+ * @param {PageProps} props - The page properties containing the route parameters.
+ * @param {ResolvingMetadata} parent - The resolved parent metadata to inherit or extend.
+ * @returns {Promise<Metadata>} The Next.js metadata object for the page.
+ */
 export async function generateMetadata(
     { params }: PageProps,
     parent: ResolvingMetadata,
@@ -43,6 +56,11 @@ export async function generateMetadata(
     };
 }
 
+/**
+ * Renders a navigation button to return to the main homepage.
+ * 
+ * @returns {JSX.Element} The back button component linked to "/".
+ */
 function BackButton() {
     return (
         <Link href="/">
@@ -53,6 +71,14 @@ function BackButton() {
     );
 }
 
+/**
+ * Main page component for displaying the details of a specific property.
+ * This is an async Server Component that fetches data server-side before rendering.
+ * If the property is not found, it triggers Next.js's notFound() function to render the 404 page.
+ * 
+ * @param {PageProps} props - The properties passed to the page, including route params.
+ * @returns {Promise<JSX.Element>} The fully rendered property details page.
+ */
 export default async function PropertyDetails({ params }: PageProps) {
     const resolvedParams = await params;
     const property = await getPropertyBySlug(resolvedParams.slug);

@@ -2,6 +2,13 @@ import Link from "next/link";
 import styles from "./not-found.module.css";
 import Button from "../components/Button/Button";
 
+/**
+ * Custom 404 Not Found Component.
+ * Automatically rendered by Next.js when a user attempts to access a route that does not exist.
+ * Displays a friendly error message and provides navigation buttons to return to safe paths (Home, Properties).
+ * 
+ * @returns {JSX.Element} The rendered 404 error page.
+ */
 export default function NotFound() {
     return (
         <div className={styles.container}>
