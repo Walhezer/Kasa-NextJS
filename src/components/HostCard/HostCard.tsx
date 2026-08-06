@@ -20,10 +20,11 @@ export default function HostCard({ host, rating }: HostCardProps) {
             
             <div className={styles.profileInfo}>
                 <div className={styles.avatarWrapper}>
-                    <Image 
+<Image 
                         src={host.picture} 
                         alt={`Photo de profil de ${host.name}`} 
                         fill 
+                        sizes="(max-width: 768px) 50px, 100px"
                         className={styles.avatar} 
                     />
                 </div>

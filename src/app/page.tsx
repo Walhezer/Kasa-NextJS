@@ -23,6 +23,7 @@ export default async function Home() {
             src="/banner.jpeg"
             alt="Bannière accueil Kasa"
             fill
+            sizes="(max-width: 1240px) 100vw, 1240px" 
             className={styles.bannerImage}
             priority
           />
