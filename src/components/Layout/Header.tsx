@@ -56,7 +56,9 @@ export default function Header({ isLoggedIn }: HeaderProps) {
                     </nav>
 
                     <div className={styles.logoContainer}>
-                        <Link href="/"><LogoKasa className={styles.logo} width={113} height={40} /></Link>
+                        <Link href="/" aria-label="Retour à l'accueil Kasa">
+                            <LogoKasa className={styles.logo} width={113} height={40} />
+                        </Link>
                     </div>
 
                     <div className={styles.rightNav}>
@@ -68,11 +70,11 @@ export default function Header({ isLoggedIn }: HeaderProps) {
                         </Link>
 
                         <div className={styles.icons}>
-                            <Link href={isLoggedIn ? "/favorites" : "/login"}>
+                            <Link href={isLoggedIn ? "/favorites" : "/login"} aria-label="Accéder à vos favoris">
                                 <HeartIcon className={styles.icon} />
                             </Link>
                             <span className={styles.divider} />
-                            <Link href={isLoggedIn ? "/messages" : "/login"}>
+                            <Link href={isLoggedIn ? "/messages" : "/login"} aria-label="Accéder à votre messagerie">
                                 <MessageIcon className={styles.icon} />
                             </Link>
                         </div>
@@ -92,7 +94,7 @@ export default function Header({ isLoggedIn }: HeaderProps) {
 
                 {/* --- MOBILE --- */}
                 <div className={styles.mobileContent}>
-                    <Link href="/" className={styles.mobileLogoLink} onClick={() => setIsMobileMenuOpen(false)}>
+                    <Link href="/" className={styles.mobileLogoLink} onClick={() => setIsMobileMenuOpen(false)} aria-label="Retour à l'accueil Kasa">
                         <LogoHouse width={46} height={53} />
                     </Link>
                     <button
@@ -110,7 +112,7 @@ export default function Header({ isLoggedIn }: HeaderProps) {
             {isMobileMenuOpen && (
                 <div className={styles.mobileOverlay}>
                     <div className={styles.mobileMenuHeader}>
-                        <Link href="/" className={styles.mobileLogoLink} onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/" className={styles.mobileLogoLink} onClick={() => setIsMobileMenuOpen(false)} aria-label="Retour à l'accueil Kasa">
                             <LogoHouse width={46} height={53} />
                         </Link>
                         <button

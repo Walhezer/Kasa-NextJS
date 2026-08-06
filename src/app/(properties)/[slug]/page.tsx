@@ -10,15 +10,17 @@ import PropertyJsonLd from '@/src/components/PropertyJsonLd/PropertyJsonLd';
 import { ArrowLeftIcon } from '@/src/components/Icons';
 import styles from './PropertyDetails.module.css';
 
+// 1. On modifie le type pour indiquer que params est désormais une Promesse
 type PageProps = {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata(
     { params }: PageProps,
     parent: ResolvingMetadata,
 ): Promise<Metadata> {
-    const property = await getPropertyBySlug(params.slug);
+    const resolvedParams = await params;
+    const property = await getPropertyBySlug(resolvedParams.slug);
 
     if (!property) {
         return {
@@ -52,7 +54,8 @@ function BackButton() {
 }
 
 export default async function PropertyDetails({ params }: PageProps) {
-    const property = await getPropertyBySlug(params.slug);
+    const resolvedParams = await params;
+    const property = await getPropertyBySlug(resolvedParams.slug);
 
     if (!property) {
         notFound();

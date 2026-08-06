@@ -123,6 +123,7 @@ export default function MessagesPage() {
                 <input
                   type="text"
                   placeholder="Envoyer un message"
+                  aria-label="Saisir un message"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   className={styles.input}
