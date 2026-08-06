@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Markdown
+# Kasa - Plateforme de location d'appartements entre particuliers
 
-## Getting Started
+## 📖 Description du projet
+Kasa est une application web moderne de location d'appartements. Ce projet consiste en la refonte totale du front-end de l'application pour la faire passer sur une stack technique récente et robuste. L'objectif est de proposer une expérience utilisateur fluide, accessible et performante, tout en respectant scrupuleusement les maquettes de conception.
 
-First, run the development server:
+Les fonctionnalités principales incluent :
+* La navigation dynamique entre les différents logements.
+* Une galerie photo (carrousel) navigable, entièrement testée et optimisée.
+* La gestion d'une liste de favoris persistante (via localStorage et Context API).
+* Un système d'authentification et de protection des routes privées (Middleware).
+* Une interface 100% responsive (ordinateur, tablette, mobile).
+* Un haut niveau d'accessibilité (normes WCAG) et d'optimisation des performances SEO.
 
+## 🛠 Technologies utilisées
+* **Framework :** [Next.js](https://nextjs.org/) (React)
+* **Langage :** TypeScript
+* **Stylisation :** CSS Modules
+* **Tests :** Jest & React Testing Library (couverture sur les composants UI et les favoris)
+* **Documentation :** JSDoc
+
+## Pré-requis pour l'installation
+Avant de commencer, assurez-vous d'avoir installé les outils suivants sur votre poste :
+* [Node.js](https://nodejs.org/) (version 18.x ou supérieure recommandée)
+* Le gestionnaire de paquets [npm](https://www.npmjs.com/) (inclus avec Node.js)
+* Git pour cloner le dépôt
+
+## Installation
+
+1. Clonez ce dépôt sur votre machine locale :
 ```bash
+git clone [https://github.com/Walhezer/Kasa-NextJS.git](https://github.com/Walhezer/Kasa-NextJS.git)
+Naviguez dans le dossier du projet :
+
+Bash
+cd Kasa-NextJS
+Installez toutes les dépendances nécessaires :
+
+Bash
+npm install
+Variables d'environnement : Créez un fichier .env.local à la racine du projet en vous basant sur les besoins de l'application (authentification, API).
+Exemple de contenu :
+
+Extrait de code
+NEXT_PUBLIC_API_URL=http://localhost:3080/api
+Lancement du projet
+Pour démarrer le serveur de développement local :
+
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Ouvrez ensuite http://localhost:3000 dans votre navigateur pour visualiser et interagir avec l'application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Exécution des tests unitaires
+L'application intègre une suite de tests unitaires pour assurer la fiabilité de la logique métier et des composants interactifs (Carrousel, système de favoris).
+Pour lancer les tests :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Bash
+npm run test
+Version de production et Audit
+Pour vérifier le comportement de l'application dans des conditions réelles de production (recommandé avant de lancer un audit Lighthouse) :
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Bash
+npm run build
+npm start
