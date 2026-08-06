@@ -1,5 +1,11 @@
 import styles from "./HowItWorks.module.css";
 
+/**
+ * HowItWorks component.
+ * Renders an informational section explaining the three simple steps to use the Kasa platform.
+ * 
+ * @returns {JSX.Element} The rendered informational section component.
+ */
 export default function HowItWorks() {
   const steps = [
     {

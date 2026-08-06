@@ -1,11 +1,25 @@
 import { useId } from "react";
 
+/**
+ * Props for the LogoHouse component.
+ * 
+ * @property {string} [className] - Optional CSS class to apply to the SVG.
+ * @property {number} [width=46] - The width of the SVG logo.
+ * @property {number} [height=53] - The height of the SVG logo.
+ */
 interface LogoHouseProps {
     className?: string;
     width?: number;
     height?: number;
 }
 
+/**
+ * Renders the Kasa house logo as an SVG.
+ * Includes dynamic gradient IDs to prevent conflicts when rendered multiple times on the same page.
+ * 
+ * @param {LogoHouseProps} props - The component props for sizing and styling.
+ * @returns {JSX.Element} The rendered house logo SVG.
+ */
 export default function LogoHouse({
     className,
     width = 46,

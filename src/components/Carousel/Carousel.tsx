@@ -5,6 +5,16 @@ import Image from 'next/image';
 import styles from './Carousel.module.css';
 import { CloseIcon, ArrowLeftIcon } from '../../components/Icons/index';
 
+/**
+ * Component displaying a full-screen image gallery modal.
+ * Includes navigation arrows, keyboard support (Escape key to close), and an image counter.
+ * 
+ * @param {Object} props - The component props.
+ * @param {string[]} props.pictures - Array of image URLs to display in the carousel.
+ * @param {number} props.initialIndex - The index of the image to show first when the modal opens.
+ * @param {() => void} props.onClose - Callback function triggered to close the modal.
+ * @returns {JSX.Element} The rendered carousel modal component.
+ */
 interface CarouselProps {
     pictures: string[];
     initialIndex: number;
@@ -25,7 +35,7 @@ export default function Carousel({ pictures, initialIndex, onClose }: CarouselPr
     }, [onClose]);
 
     const handleNext = (e: React.MouseEvent) => {
-        e.stopPropagation(); 
+        e.stopPropagation();
         setCurrentIndex((prev) => (prev === totalPictures - 1 ? 0 : prev + 1));
     };
 
@@ -37,7 +47,7 @@ export default function Carousel({ pictures, initialIndex, onClose }: CarouselPr
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
             <div className={styles.carouselContainer} onClick={(e) => e.stopPropagation()}>
-                
+
                 {/* Close Button */}
                 <button className={styles.closeBtn} onClick={onClose} aria-label="Fermer la galerie">
                     <CloseIcon />

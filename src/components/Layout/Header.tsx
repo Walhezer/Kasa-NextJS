@@ -12,20 +12,18 @@ import { logoutAction } from "../../actions/auth.actions";
 import { useFavorites } from "../../context/FavoritesContext";
 
 /**
- * Expected props for the Header component
+ * Main navigation Header component (Client Component).
+ * Handles responsive layouts (desktop and mobile), mobile menu state management,
+ * and user authentication actions (logout, conditional routing for protected areas).
+ * 
+ * @param {Object} props - The component props.
+ * @param {boolean} props.isLoggedIn - Indicates whether the current user is authenticated.
+ * @returns {JSX.Element} The rendered header component.
  */
 interface HeaderProps {
     isLoggedIn: boolean;
 }
 
-/**
- * Header Component
- * Main navigation component (Client Component).
- * Handles responsive layout (Desktop/Mobile), mobile menu state,
- * and protects routes requiring authentication (add property, favorites, etc.).
- * 
- * @param {boolean} isLoggedIn - Prop passed down from the server layout
- */
 export default function Header({ isLoggedIn }: HeaderProps) {
     const pathname = usePathname();
     const { clearFavorites } = useFavorites();

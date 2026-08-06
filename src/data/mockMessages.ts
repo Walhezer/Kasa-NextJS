@@ -1,3 +1,12 @@
+/**
+ * Represents a single chat message within a conversation.
+ * 
+ * @typedef {Object} Message
+ * @property {string} id - The unique identifier of the message.
+ * @property {string} senderId - The ID of the user who sent the message.
+ * @property {string} text - The actual text content of the message.
+ * @property {string} timestamp - The formatted time or date the message was sent (e.g., "11:04 am").
+ */
 export type Message = {
   id: string;
   senderId: string;
@@ -5,6 +14,16 @@ export type Message = {
   timestamp: string;
 };
 
+/**
+ * Represents a conversation thread between the current user and a property host.
+ * 
+ * @typedef {Object} Conversation
+ * @property {string} id - The unique identifier of the conversation.
+ * @property {string} hostName - The display name of the host.
+ * @property {string} [hostAvatar] - Optional URL to the host's profile picture.
+ * @property {boolean} unread - Indicates if the conversation contains unread messages.
+ * @property {Message[]} messages - An array of messages belonging to this thread.
+ */
 export type Conversation = {
   id: string;
   hostName: string;
@@ -13,8 +32,18 @@ export type Conversation = {
   messages: Message[];
 };
 
+/**
+ * Mock identifier for the currently logged-in user.
+ * Used for testing conditional rendering (e.g., aligning messages left or right).
+ * @type {string}
+ */
 export const currentUserId = "user-123";
 
+/**
+ * Mock data containing a list of conversations for development and testing purposes.
+ * Simulates a real API response.
+ * @type {Conversation[]}
+ */
 export const mockConversations: Conversation[] = [
   {
     id: "conv-1",

@@ -1,5 +1,13 @@
 import React from 'react';
 
+/**
+ * Props for the LogoKasa component.
+ * 
+ * @property {string} [className] - Optional CSS class to apply to the SVG wrapper.
+ * @property {number} [width=211] - The width of the full logo.
+ * @property {number} [height=68] - The height of the full logo.
+ * @property {string} [fill="#050202"] - The main fill color (used for the text part of the logo).
+ */
 interface LogoKasaProps {
     className?: string;
     width?: number;
@@ -7,6 +15,13 @@ interface LogoKasaProps {
     fill?: string;
 }
 
+/**
+ * Renders the full Kasa text and house logo as an SVG.
+ * Contains complex paths and gradients for the official branding.
+ * 
+ * @param {LogoKasaProps} props - The component props for sizing and coloring.
+ * @returns {JSX.Element} The rendered full Kasa logo SVG.
+ */
 export default function LogoKasa({
     className,
     width = 211,
@@ -61,7 +76,6 @@ export default function LogoKasa({
                     </linearGradient>
                 </defs>
             </svg>
-
         </svg>
     );
 }

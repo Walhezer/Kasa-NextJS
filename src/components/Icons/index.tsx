@@ -1,12 +1,24 @@
 import { SVGProps } from "react";
 
+/**
+ * Props specific to the HeartIcon component.
+ * @extends React.SVGProps<SVGSVGElement>
+ * 
+ * @property {boolean} [isFilled=false] - Determines if the heart is filled (active state).
+ * @property {string} [inactiveBgColor="none"] - Background color when the heart is not filled.
+ * @property {string} [inactiveBorderColor="currentColor"] - Border color when the heart is not filled.
+ */
 interface HeartIconProps extends React.SVGProps<SVGSVGElement> {
     isFilled?: boolean;
     inactiveBgColor?: string;
     inactiveBorderColor?: string;
 }
 
-// Message
+/**
+ * Renders a message/chat bubble icon.
+ * @param {SVGProps<SVGSVGElement>} props - Standard SVG attributes.
+ * @returns {JSX.Element} The message icon SVG.
+ */
 export function MessageIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -20,14 +32,19 @@ export function MessageIcon(props: SVGProps<SVGSVGElement>) {
     );
 }
 
-// Heart / Favorites
+/**
+ * Renders a heart icon, typically used for favorites or likes.
+ * Supports filled (active) and outlined (inactive) states.
+ * 
+ * @param {HeartIconProps} props - The component props including SVG attributes and custom state colors.
+ * @returns {JSX.Element} The heart icon SVG.
+ */
 export function HeartIcon({
     isFilled = false,
     inactiveBgColor = "none",
     inactiveBorderColor = "currentColor",
     ...props
 }: HeartIconProps) {
-
     return (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <path
@@ -44,7 +61,11 @@ export function HeartIcon({
     );
 }
 
-// Cross / Close
+/**
+ * Renders a close (cross) icon.
+ * @param {SVGProps<SVGSVGElement>} props - Standard SVG attributes.
+ * @returns {JSX.Element} The close icon SVG.
+ */
 export function CloseIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -53,7 +74,11 @@ export function CloseIcon(props: SVGProps<SVGSVGElement>) {
     );
 }
 
-// Left Arrow (Back)
+/**
+ * Renders a left-pointing arrow icon, typically used for "back" navigation.
+ * @param {SVGProps<SVGSVGElement>} props - Standard SVG attributes.
+ * @returns {JSX.Element} The left arrow icon SVG.
+ */
 export function ArrowLeftIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -62,7 +87,11 @@ export function ArrowLeftIcon(props: SVGProps<SVGSVGElement>) {
     );
 }
 
-// Map Pin
+/**
+ * Renders a location pin icon.
+ * @param {SVGProps<SVGSVGElement>} props - Standard SVG attributes.
+ * @returns {JSX.Element} The location pin icon SVG.
+ */
 export function LocationIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -71,7 +100,11 @@ export function LocationIcon(props: SVGProps<SVGSVGElement>) {
     );
 }
 
-// Trash / Delete
+/**
+ * Renders a trash bin icon, typically used for delete actions.
+ * @param {SVGProps<SVGSVGElement>} props - Standard SVG attributes.
+ * @returns {JSX.Element} The trash icon SVG.
+ */
 export function TrashIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -85,7 +118,11 @@ export function TrashIcon(props: SVGProps<SVGSVGElement>) {
     );
 }
 
-// More / Add
+/**
+ * Renders a plus icon, typically used for adding items or expanding sections.
+ * @param {SVGProps<SVGSVGElement>} props - Standard SVG attributes.
+ * @returns {JSX.Element} The plus icon SVG.
+ */
 export function PlusIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -94,7 +131,11 @@ export function PlusIcon(props: SVGProps<SVGSVGElement>) {
     );
 }
 
-// Menu / Hamburger / Filter
+/**
+ * Renders a hamburger menu icon.
+ * @param {SVGProps<SVGSVGElement>} props - Standard SVG attributes.
+ * @returns {JSX.Element} The menu icon SVG.
+ */
 export function MenuIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -103,7 +144,11 @@ export function MenuIcon(props: SVGProps<SVGSVGElement>) {
     );
 }
 
-// Up Arrow (Top)
+/**
+ * Renders an upward-pointing arrow icon, typically used for "scroll to top" actions.
+ * @param {SVGProps<SVGSVGElement>} props - Standard SVG attributes.
+ * @returns {JSX.Element} The up arrow icon SVG.
+ */
 export function ArrowUpIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>

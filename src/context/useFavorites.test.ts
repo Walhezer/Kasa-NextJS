@@ -1,7 +1,10 @@
 import { renderHook, act } from '@testing-library/react';
 import { useFavorites, FavoritesProvider } from './FavoritesContext';
 
-// 1. We create a “fake” localStorage (a mock) so that Jest can simulate the browser
+/**
+ * Mock implementation of the browser's localStorage for the Jest testing environment.
+ * Provides basic getItem, setItem, and clear functionalities to isolate tests from the real browser API.
+ */
 const localStorageMock = (function () {
   let store: Record<string, string> = {};
   return {
@@ -20,6 +23,10 @@ const localStorageMock = (function () {
 // We replace the actual localStorage in the test environment with our mock
 Object.defineProperty(window, 'localStorage', { value: localStorageMock });
 
+/**
+ * Test suite for the useFavorites custom hook.
+ * Verifies initialization, adding/removing favorites, and localStorage interactions.
+ */
 describe('Hook useFavorites (avec Context)', () => {
   beforeEach(() => {
     window.localStorage.clear();

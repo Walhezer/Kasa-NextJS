@@ -8,6 +8,15 @@ import Button from '../../components/Button/Button';
 import { HeartIcon } from '../../components/Icons/index';
 import { useFavorites } from '../../context/FavoritesContext';
 
+/**
+ * Component representing a single property card.
+ * Displays the property's cover image, title, location, and price.
+ * Includes an interactive heart button to toggle the property in the user's favorites.
+ * 
+ * @param {Object} props - The component props.
+ * @param {Property} props.property - The property data object to display.
+ * @returns {JSX.Element} The rendered property card component.
+ */
 interface PropertyCardProps {
   property: Property;
 }

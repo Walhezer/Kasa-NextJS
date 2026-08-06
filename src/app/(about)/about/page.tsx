@@ -1,6 +1,10 @@
 import Image from "next/image";
 import styles from "./about.module.css";
 
+/**
+ * About page component.
+ * Displays information about the Kasa company and its mission.
+ */
 export default function About() {
     return (
         <div className={styles.container}>

@@ -6,7 +6,8 @@ const API_BASE_URL =
         : "/backend-api";
 
 /**
- * Retrieves a list of all properties
+ * Retrieves a list of all properties.
+ * @returns {Promise<Property[]>} A promise that resolves to an array of all properties. Returns an empty array on error.
  */
 export async function getProperties(): Promise<Property[]> {
     try {
@@ -26,7 +27,9 @@ export async function getProperties(): Promise<Property[]> {
 }
 
 /**
- * Retrieves the details of a property by its ID
+ * Retrieves the details of a property by its ID.
+ * @param {string} id - The ID of the property to retrieve.
+ * @returns {Promise<Property | null>} A promise that resolves to the property object, or null if not found or on error.
  */
 export async function getPropertyById(id: string): Promise<Property | null> {
     try {
@@ -47,7 +50,10 @@ export async function getPropertyById(id: string): Promise<Property | null> {
 }
 
 /**
- * Retrieves the details of a property by its slug (Ruse Front-end)
+ * Retrieves the details of a property by its slug.
+ * This is a client-side convenience function that first fetches all properties to find the one with the matching slug.
+ * @param {string} slug - The slug of the property to retrieve.
+ * @returns {Promise<Property | null>} A promise that resolves to the property object, or null if not found or on error.
  */
 export async function getPropertyBySlug(slug: string): Promise<Property | null> {
     try {
