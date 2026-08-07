@@ -4,6 +4,8 @@
 
 Kasa est une application web moderne de location d'appartements. Ce projet consiste en la refonte totale du front-end de l'application pour la faire passer sur une stack technique récente et robuste. L'objectif est de proposer une expérience utilisateur fluide, accessible et performante, tout en respectant scrupuleusement les maquettes de conception.
 
+L'application a été conçue pour fonctionner de deux manières différentes, selon vos besoins : en **mode autonome** (via un mock complet des données) ou **reliée à son véritable backend**.
+
 Les fonctionnalités principales incluent :
 
 - La navigation dynamique entre les différents logements.
@@ -31,25 +33,7 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants sur votre
 - Le gestionnaire de paquets [npm](https://www.npmjs.com/) (inclus avec Node.js)
 - Git pour cloner le dépôt
 
-## Installation
-
-L'application nécessite que le serveur backend (fourni pour le projet) et le front-end soient lancés simultanément.
-
-### 1. Configuration et lancement du backend
-
-Récupérez et ouvrez le dossier du backend fourni, puis installez les dépendances :
-
-```bash
-npm install
-```
-
-Lancez ensuite le serveur backend (généralement sur le port 3000) :
-
-```bash
-npm start
-```
-
-### 2. Installation du front-end
+## Installation du front-end
 
 Clonez ce dépôt sur votre machine locale :
 
@@ -69,25 +53,58 @@ Installez toutes les dépendances nécessaires :
 npm install
 ```
 
-### 3. Variables d'environnement
+### Configuration des variables d'environnement
 
-Créez un fichier `.env.local` à la racine du projet et insérez-y le contenu suivant pour que l'application puisse communiquer avec l'API locale :
+Créez un fichier `.env.local` à la racine du projet et insérez-y le contenu suivant :
 
 ```env
+# Interrupteur pour basculer entre le mode autonome (true) et le vrai backend (false)
+NEXT_PUBLIC_USE_MOCKS=true
+
+# URLs de l'API (utilisées uniquement si NEXT_PUBLIC_USE_MOCKS=false)
 NEXT_PUBLIC_API_URL=http://localhost:3000/api
 AUTH_API_URL=http://localhost:3000
 BACKEND_API_URL=http://localhost:3000/api
 ```
 
-### 4. Lancement du projet
+## Lancement de l'application
 
-Pour démarrer le serveur de développement local :
+Deux modes de fonctionnement sont disponibles selon vos besoins.
+
+### Option A : Mode autonome / Mock (recommandé pour l'évaluation)
+
+Grâce au paramètre `NEXT_PUBLIC_USE_MOCKS=true`, le front-end est totalement indépendant et aucune installation supplémentaire n'est requise.
+
+Lancez simplement le serveur de développement :
 
 ```bash
 npm run dev
 ```
 
-Ouvrez ensuite [http://localhost:3001](http://localhost:3001) (ou le port indiqué dans votre terminal si le 3000 est déjà occupé par le backend) dans votre navigateur pour visualiser et interagir avec l'application.
+L'application est accessible sur [http://localhost:3001](http://localhost:3001) (ou le port indiqué par votre terminal). L'authentification accepte n'importe quels identifiants de démonstration.
+
+### Option B : Lancement avec le backend réel
+
+Si vous souhaitez tester la communication réseau réelle, passez `NEXT_PUBLIC_USE_MOCKS=false` dans votre `.env.local`, puis :
+
+1. Récupérez et ouvrez le dossier du backend fourni.
+2. Installez les dépendances :
+
+```bash
+npm install
+```
+
+3. Lancez le serveur backend (sur le port 3000) :
+
+```bash
+npm start
+```
+
+4. Démarrez ensuite le projet front-end :
+
+```bash
+npm run dev
+```
 
 ## Exécution des tests unitaires
 
